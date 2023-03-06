@@ -6,7 +6,8 @@ app = FastAPI(
     description="",
     version=0.1
 )
-
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='Recognition/logs/ImageRecognition.log',level=logging.DEBUG)
 
 
 from Recognition.endpoints import api
