@@ -9,5 +9,5 @@ app = FastAPI(
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename='Recognition/logs/ImageRecognition.log',level=logging.DEBUG)
 
-
+client = None
 from Recognition.endpoints import api
