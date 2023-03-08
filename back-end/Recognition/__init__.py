@@ -1,6 +1,7 @@
 from fastapi import FastAPI,Request
 from http import HTTPStatus
 import logging
+
 app = FastAPI(
     title="Image Recognition API",
     description="",
@@ -9,5 +10,5 @@ app = FastAPI(
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename='Recognition/logs/ImageRecognition.log',level=logging.DEBUG)
 
-client = None
+
 from Recognition.endpoints import api
