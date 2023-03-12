@@ -4,10 +4,8 @@ import logging
 # Third-party library imports
 from fastapi import FastAPI,Request
 from http import HTTPStatus
-
 # Local imports
-from src.utils import GoogleVisionClient
-
+from Recognition.src.classes import GoogleVisionClient
 
 # Set the credentials file path
 credentials_path = '../back-end/training2-project-948749066640.json'
@@ -21,7 +19,5 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(filename='Recognition/logs/ImageRecognition.log',level=logging.DEBUG)
 
 # Create google vision client instance
-client = GoogleVisionClient.get_instance(credentials_path)
-
-
+client = GoogleVisionClient.get_instance(credentials_path).google_client
 from Recognition.endpoints import api
