@@ -1,7 +1,16 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
+import { GithubComponent } from './github/github.component';
+import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'home',component:HomeComponent},
+  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'github',component:GithubComponent},
+  {path:'contact',component:ContactComponent},
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
