@@ -9,6 +9,8 @@ import * as $ from 'jquery';
 })
 export class NavComponent  implements AfterViewInit {
 	ngAfterViewInit() {
+		// all of the code inside this function can be skipped its just a jquery code helped in the design 
+
 		$(document).ready(function(){
 			setTimeout(function(){ test(); });
 		});
@@ -39,7 +41,10 @@ export class NavComponent  implements AfterViewInit {
 	}
 
 }
+
 function test(){
+	// all of the code inside this function can be skipped its just a jquery code helped in the design 
+
 	var tabsNewAnim = $('#navbarSupportedContent');
 	var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
 	var activeItemNewAnim = tabsNewAnim.find('.active');

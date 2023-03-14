@@ -12,6 +12,7 @@ import * as $ from 'jquery';
 export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
+    // all of the code inside this function can be skipped its just a jquery code helped in the design 
     $('.slide-nav').on('click', function(e) {
       e.preventDefault();
       // get current slide

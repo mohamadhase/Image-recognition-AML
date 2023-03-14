@@ -13,56 +13,25 @@ export class GithubComponent implements AfterViewInit {
   constructor(private router:Router){}
 
   ngAfterViewInit(){
-    this.countAndRedirect();
+    /*
+    this function is a interface provided by angular it self , it call it self
+     automaticly when the component get initialized
+    */
+    this.countAndRedirect(); // call the function that will redirect the user
     
-    $(document).ready(function () {
-  
-      var messageOfTheDay = function () {
-    
-        var today = new Date(),
-            $message = $('.message'),
-            dailyMessage = "",
-            dayOfWeek;
-    
-        dayOfWeek = today.getDay();
-    
-        switch (dayOfWeek) {
-          case 0: 
-            dailyMessage = "You will be redirected to the github repo";
-            break;
-          case 1: 
-            dailyMessage = "You will be redirected to the github repo";
-            break;
-          case 2: 
-            dailyMessage = "You will be redirected to the github repo";
-            break;
-          case 3: 
-            dailyMessage = "You will be redirected to the github repo";
-            break;
-          case 4: 
-            dailyMessage = "You will be redirected to the github repo";
-            break;
-          case 5: 
-            dailyMessage = "You will be redirected to the github repo";
-            break;
-          case 6: 
-            dailyMessage = "You will be redirected to the github repo";
-            break;
-        }
-    
-        // Fill the message element 
-        // with the dailyMessage
-        $message.text(dailyMessage);
-     
-      }
-      
-      messageOfTheDay();
-      
-    });
+
+ 
   }
   countAndRedirect() {
+   /*
+ * this function counts for 2 secounds before redirect the user into github repo
+ */
     let count = 0;
-    const interval = setInterval(() => {
+    const interval = setInterval(() => { 
+      /* 
+      create a function that increase the count and then make it call it self , 
+      and put the function inside interval delay for 1s
+      */
       count++;
       if (count === 2) {
         clearInterval(interval);
