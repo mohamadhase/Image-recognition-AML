@@ -1,0 +1,16 @@
+<body>
+  <div class="upload-container" (dragover)="handleDragOver($event)" (dragleave)="handleDragLeave($event)" (drop)="handleFileDrop($event)" #uploadContainer>
+    <input type="file" (change)="handleFileInput($event)" #fileInput style="opacity: 0; position: absolute; width: 100%; height: 100%; z-index: 1;">
+    <div class="upload-wrapper" (click)="fileInput.click()">
+        <p class="upload-text">{{ imagePreviewUrl ? '' : 'Drop your photo here' }}</p>
+        <img *ngIf="imagePreviewUrl" [src]="imagePreviewUrl" alt="Uploaded image" class="uploaded-image">
+    </div>
+  </div>
+
+  <div class="file-info" *ngIf="selectedImage">
+    <span class="file-name">{{ selectedImage.name }}</span>
+    <button type="button" class="delete-button" (click)="deleteImage()"><i class="gg-trash"></i></button>
+  </div>
+  
+  <button type="submit" class="submit-button" (click)="onSubmit()">Submit</button>
+</body>

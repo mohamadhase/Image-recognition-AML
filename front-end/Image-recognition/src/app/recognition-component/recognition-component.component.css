@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
+@import url('https://unpkg.com/css.gg@2.0.0/icons/css/trash.css');
+
+body {
+  margin-top:5%;
+  font-family: 'Sono', sans-serif;
+  text-align: center;
+  opacity: 100%;
+}
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #007bff;
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+  height: 300px;
+  background-image: url("upload.jpg");
+  background-size:contain;
+  opacity: 0.5 !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.upload-container.drag-over {
+  border-color: #007bff;
+}
+
+.upload-wrapper {
+  display: flex;
+  flex-direction: column;
+
+}
+.uploaded-image {
+  opacity: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.upload-text {
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  top:90%;
+  left:41%;
+  font-size: 18px;
+  color: #007bff;
+}
+
+
+
+.preview-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.delete-button { 
+  font-family: 'Sono', sans-serif;
+  background: none;
+  color:white;
+  padding: 10px 20px;
+  margin:2%;
+  border: none;
+  border-radius:5px;
+  cursor: pointer;
+}
+ 
+.gg-trash{
+  color:#007bff;
+}
+
+/* .file-info{
+  position: absolute;
+  top: 65%;
+  right: 2.5%;
+  display: flex;
+  align-items: center;
+} */
+
+
+.file-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: lightgrey;
+  border-radius: 5%;
+  height:2%;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.file-name {
+  margin-right: 10px;
+}
+
+.submit-button {
+  font-family: 'Sono', sans-serif;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin:7%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
