@@ -145,17 +145,7 @@
   .flex--piplup .flex__item--right {
     background: #d3eaef;
   }
-  
-  /* Pikachu */
-  
-  .flex--pikachu .flex__item--left {
-    background: #f8d41f;
-  }
-  
-  .flex--pikachu .flex__item--right {
-    background: #f4ecc5;
-  }
-  
+
   /* Blaziken */
   
   .flex--blaziken .flex__item--left {
