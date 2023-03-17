@@ -20,6 +20,8 @@ export class RecognitionComponentComponent {
     event.stopPropagation(); // Stops the event from bubbling up the DOM
     event.dataTransfer!.dropEffect = 'copy'; // Sets the drop effect to "copy"
     this.dragOver = true; 
+    let container = document.querySelector('.upload-container');
+    container?.classList.add('dragover');
   }
   
   // handles the dragleave event
@@ -27,6 +29,9 @@ export class RecognitionComponentComponent {
     event.preventDefault(); // Prevents the browser's default dragleave behavior
     event.stopPropagation(); // Stops the event from bubbling up the DOM
     this.dragOver = false; // Sets the dragOver property to false
+    let container = document.querySelector('.upload-container');
+    container?.classList.remove('dragover');
+    
   }
   
   // handles the file drop event
@@ -49,6 +54,10 @@ export class RecognitionComponentComponent {
       // Read the file as a data
       reader.readAsDataURL(files[0]);
     }
+    let container = document.querySelector('.upload-container');
+
+    container?.classList.remove('dragover');
+
   }
   
   // handle file input from user
@@ -75,6 +84,7 @@ export class RecognitionComponentComponent {
 
   onSubmit() {
     // submit logic 
+    console.log(this.imagePreviewUrl)
   }
 }
 

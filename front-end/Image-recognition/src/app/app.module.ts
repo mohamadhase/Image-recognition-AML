@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    ResultComponentComponent
+    ResultComponentComponent,
     NavComponent,
     HomeComponent,
     ContactComponent,
