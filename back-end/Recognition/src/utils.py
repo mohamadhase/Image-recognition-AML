@@ -1,6 +1,11 @@
-from google.cloud import vision
+from google.cloud import vision # to call Google Vision APIs for image recognition
+# Local imports
 from Recognition import client
 from Recognition import logger
+
+
+
+
 
 def google_vision_call(photo:bytes):
     """
