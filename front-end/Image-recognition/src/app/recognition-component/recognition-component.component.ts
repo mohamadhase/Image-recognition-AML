@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RecognitionService } from '../recognition.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recognition-component',
@@ -13,6 +15,9 @@ export class RecognitionComponentComponent {
   imagePreviewUrl: string | null = null;
   // property indicates whether the user is currently dragging a file over the component
   dragOver = false;
+  constructor(private recognitionservice:RecognitionService,private router: Router){
+
+  }
 
   // handles the dragover event
   handleDragOver(event: DragEvent) {
@@ -83,8 +88,21 @@ export class RecognitionComponentComponent {
   }
 
   onSubmit() {
-    // submit logic 
-    console.log(this.imagePreviewUrl)
+    if (this.imagePreviewUrl == null) {
+      return;
+    }
+    
+    let photoContent = this.imagePreviewUrl.split(",")[1];
+    
+    this.recognitionservice.RecognizePhoto(photoContent).subscribe((data) => {
+      console.log(data);
+      data.data.image =  this.imagePreviewUrl;
+      this.router.navigate(['/result'], {
+        queryParams: {
+          obj: JSON.stringify(data.data)
+        }
+      });
+    });
   }
 }
 

@@ -1,1 +1,33 @@
-<div id="word-cloud"></div>
+<div class="container">
+    <div class="image-container" style="position: relative;">
+        <canvas id="myCanvas" ></canvas>
+
+        
+    </div>
+
+
+    <div class="selected-text">
+        <div class="header">
+            <p>Selected Text</p>
+            <button type="button" (click)="closeText()" class="btn-close btn-close-white" aria-label="Close"></button>
+        </div>
+        <div class="body">
+            <p id="selectedText">Selected Text</p>
+        </div>
+    </div>
+
+    <div class="tags">
+        <div class="header">
+            <p>Tags</p>
+            <button type="button" (click)="closeTags()" class="btn-close btn-close-white" aria-label="Close"></button>
+        </div>
+        <div class="body" (click)="expandWordCloud()">
+            <div id="word-cloud"></div>
+        </div>
+    </div>
+
+    <div class="full-screen" *ngIf="isWordCloudExpanded">
+        <div id="word-cloud2"   ></div>
+        <button type="button" class="btn-close btn-close" (click)="closeWordCloud()" aria-label="Close"></button>
+    </div>
+</div>
