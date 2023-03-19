@@ -10,7 +10,6 @@ from Recognition.src.classes import GoogleVisionClient
 from Recognition.src.constants import CREDENTIALS_PATH
 from fastapi.middleware.cors import CORSMiddleware
 import serial
-import time
 # Set the credentials file path
 
 app = FastAPI(

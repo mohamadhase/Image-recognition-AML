@@ -2,7 +2,7 @@ from http import HTTPStatus
 from fastapi import Request,File,HTTPException
 from Recognition import app,logger
 from Recognition.src.data_handler import Photo
-from Recognition.src.utils import google_vision_call,convert_text_to_dict,convert_labels_to_dict,open_gate,close_gate
+from Recognition.src.utils import google_vision_call,convert_text_to_dict,convert_labels_to_dict,send_close_command,send_open_command
 from time import sleep
 import serial
 
@@ -46,9 +46,7 @@ def _recognize_photo(photo:Photo):
 
 @app.get("/open_gate")
 def __open_gate():
-
-    open_gate()
-
+    send_open_command()
     return {
         "message": HTTPStatus.OK.phrase,
         "status-code": HTTPStatus.OK,
@@ -59,9 +57,8 @@ def __open_gate():
     
 @app.get("/close_gate")
 def __close_gate():
-    print("hi")
 
-    close_gate()
+    send_close_command()
     return {
         "message": HTTPStatus.OK.phrase,
         "status-code": HTTPStatus.OK,

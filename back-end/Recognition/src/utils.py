@@ -74,18 +74,18 @@ def convert_labels_to_dict(labels)->dict:
     logger.info("Converting labels to dict.")
 
     labels_dict = {
-        "labels": [label.description for label in labels],
-        "scores": [label.score for label in labels],
+        "labels": (label.description for label in labels),
+        "scores": (label.score for label in labels),
     }
     logger.debug(f"Labels dict: {labels_dict}")
 
     return labels_dict
 
-def open_gate():
+def send_open_command():
     if ser:
         ser.write(b'O')
     
-def close_gate():
+def send_close_command():
     if ser:
         ser.write(b'C')
     
