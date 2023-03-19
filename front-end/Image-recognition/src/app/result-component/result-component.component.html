@@ -1,6 +1,6 @@
 <div class="container">
     <div class="image-container" style="position: relative;">
-        <canvas id="myCanvas" ></canvas>
+        <canvas id="myCanvas"  ></canvas>
 
         
     </div>
@@ -29,5 +29,11 @@
     <div class="full-screen" *ngIf="isWordCloudExpanded">
         <div id="word-cloud2"   ></div>
         <button type="button" class="btn-close btn-close" (click)="closeWordCloud()" aria-label="Close"></button>
+    </div>
+    <div class="buttons">
+
+        <button type="submit" class="btn btn-outline-success" (click)="openGate()"><i class="bi bi-arrow-right"></i>open Gate</button>
+        <button type="submit" class="btn btn-outline-danger" (click)="closeGate()"><i class="bi bi-arrow-right"></i>close Gate</button>
+    
     </div>
 </div>

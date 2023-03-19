@@ -4,11 +4,13 @@ import logging
 # Third-party library imports
 from fastapi import FastAPI,Request
 from http import HTTPStatus
+
 # Local imports
 from Recognition.src.classes import GoogleVisionClient
 from Recognition.src.constants import CREDENTIALS_PATH
 from fastapi.middleware.cors import CORSMiddleware
-
+import serial
+import time
 # Set the credentials file path
 
 app = FastAPI(
@@ -28,4 +30,11 @@ logging.basicConfig(filename='Recognition/logs/ImageRecognition.log',level=loggi
 
 # Create google vision client instance
 client = GoogleVisionClient.get_instance(CREDENTIALS_PATH).google_client
+ser = None
+try:
+    ser =  serial.Serial("COM4", 9600)
+except :
+    print("no arduino connected to the device")
+
+
 from Recognition.endpoints import api

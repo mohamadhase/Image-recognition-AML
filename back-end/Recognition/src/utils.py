@@ -2,8 +2,10 @@ from google.cloud import vision # to call Google Vision APIs for image recogniti
 # Local imports
 from Recognition import client
 from Recognition import logger
-
-
+import subprocess
+from time import sleep
+import serial
+from Recognition import ser
 
 
 
@@ -78,3 +80,12 @@ def convert_labels_to_dict(labels)->dict:
     logger.debug(f"Labels dict: {labels_dict}")
 
     return labels_dict
+
+def open_gate():
+    if ser:
+        ser.write(b'O')
+    
+def close_gate():
+    if ser:
+        ser.write(b'C')
+    

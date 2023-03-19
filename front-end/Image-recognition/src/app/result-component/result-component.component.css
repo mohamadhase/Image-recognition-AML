@@ -137,3 +137,18 @@ color: #000000;
     border-radius: 10px;
 
   }
+
+  .buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .buttons > button{
+    margin-left: 45px;
+  }
+
+  #myCanvas{
+    border:1px solid black;
+    /* max-height: 70vh;
+    max-width: 100%; */
+  }
