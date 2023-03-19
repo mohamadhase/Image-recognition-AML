@@ -4,9 +4,6 @@ from Recognition import client
 from Recognition import logger
 
 
-
-
-
 def google_vision_call(photo:bytes):
     """
     Processes an image file using the Google Vision API to perform text detection and label detection.
