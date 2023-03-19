@@ -29,6 +29,9 @@ logging.basicConfig(filename='Recognition/logs/ImageRecognition.log',level=loggi
 
 # Create google vision client instance
 client = GoogleVisionClient.get_instance(CREDENTIALS_PATH).google_client
+
+
+
 ser = None
 try:
     ser =  serial.Serial("COM4", 9600)
