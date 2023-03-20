@@ -24,13 +24,11 @@ export class ResultComponentComponent implements  AfterViewInit{
   showTags = true;
   showText = true;
   isWordCloudExpanded = false;
-  canvas: HTMLCanvasElement;
-  context: CanvasRenderingContext2D;
+
   private labels: string[] = [ ]; //  label names array
 
   private scores: number[]= []; // scores array
   private text_response :TextResponse[]= []
-@ViewChild('myCanvas', { static: true }) canvasRef: ElementRef<HTMLCanvasElement>;
 
 ngAfterViewInit() {
   let data = JSON.parse(this.route.snapshot.queryParamMap.get('obj'));
