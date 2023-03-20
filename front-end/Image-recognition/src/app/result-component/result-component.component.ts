@@ -31,6 +31,7 @@ export class ResultComponentComponent implements  AfterViewInit{
   
 ngAfterViewInit() {
   let data = JSON.parse(this.route.snapshot.queryParamMap.get('obj'));
+
   this.labels = data.labels_response.labels
   this.scores = data.labels_response.scores
   this.text_response = data.text_response
@@ -46,6 +47,7 @@ ngAfterViewInit() {
     canvas.height =  image.height;
     ctx.drawImage(image, 0, 0);
     
+
     for (const text of textt_response) {
       const rect = new Path2D();
       rect.moveTo(text.bounding_poly[0].x, text.bounding_poly[0].y);
@@ -87,7 +89,7 @@ ngAfterViewInit() {
         },
       });
   }
-  
+
   closeTags() {
     if (this.showTags==true){
       const element = document.querySelector('.tags') as HTMLElement;
@@ -149,7 +151,13 @@ ngAfterViewInit() {
   }
   closeGate(){
     this.hardwareservice.closeGate().subscribe()
+
   }
+  closeWordCloud() {
+    this.isWordCloudExpanded = false;
+
+  }
+
 }
 
 

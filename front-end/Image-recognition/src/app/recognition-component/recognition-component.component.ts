@@ -18,6 +18,7 @@ export class RecognitionComponentComponent {
   dragOver = false;
   constructor(private recognitionservice:RecognitionService,private router: Router,private sharedphoto :SharedPhotoService){}
 
+
   // handles the dragover event
   handleDragOver(event: DragEvent) {
     event.preventDefault(); // Prevents the browser's default dragover behavior
@@ -96,6 +97,7 @@ export class RecognitionComponentComponent {
     this.recognitionservice.RecognizePhoto(photoContent).subscribe((data) => {
 
       this.router.navigate(['/result'], {
+
 
         queryParams: {
           obj: JSON.stringify(data.data)
