@@ -22,21 +22,15 @@ interface TextResponse {
 
 export class ResultComponentComponent implements  AfterViewInit{
   constructor(private route: ActivatedRoute,private hardwareservice:HardwareService,private sharedphoto :SharedPhotoService) { }
-
   showTags = true;
   showText = true;
   isWordCloudExpanded = false;
-  canvas: HTMLCanvasElement;
-  context: CanvasRenderingContext2D;
   private labels: string[] = [ ]; //  label names array
-
   private scores: number[]= []; // scores array
   private text_response :TextResponse[]= []
-@ViewChild('myCanvas', { static: true }) canvasRef: ElementRef<HTMLCanvasElement>;
-
+  
 ngAfterViewInit() {
   let data = JSON.parse(this.route.snapshot.queryParamMap.get('obj'));
-
   this.labels = data.labels_response.labels
   this.scores = data.labels_response.scores
   this.text_response = data.text_response
@@ -45,16 +39,13 @@ ngAfterViewInit() {
   const ctx = canvas.getContext('2d');
   const image = new Image();
   image.src = this.sharedphoto.getImageContent()
-  console.log(image.src)
   image.style.objectFit = "fill"
   let textt_response = this.text_response
-
   image.onload = () => {
     canvas.width = image.width;
     canvas.height =  image.height;
-
     ctx.drawImage(image, 0, 0);
-
+    
     for (const text of textt_response) {
       const rect = new Path2D();
       rect.moveTo(text.bounding_poly[0].x, text.bounding_poly[0].y);
@@ -96,6 +87,7 @@ ngAfterViewInit() {
         },
       });
   }
+  
   closeTags() {
     if (this.showTags==true){
       const element = document.querySelector('.tags') as HTMLElement;
@@ -151,12 +143,7 @@ ngAfterViewInit() {
     this.isWordCloudExpanded = false;
 
   }
-  onImageLoad() {
-    const canvas = this.canvasRef.nativeElement;
-    const ctx = canvas.getContext('2d');
 
-
-  }
   openGate(){
     this.hardwareservice.openGate().subscribe()
   }

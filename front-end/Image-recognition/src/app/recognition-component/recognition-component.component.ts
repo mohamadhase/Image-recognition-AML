@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RecognitionService } from '../recognition.service';
 import { Router } from '@angular/router';
-import * as FileSaver from 'file-saver';
-import { HttpClient } from '@angular/common/http';
 import { SharedPhotoService } from '../shared-photo.service';
 
 @Component({
@@ -18,9 +16,7 @@ export class RecognitionComponentComponent {
   imagePreviewUrl: string | null = null;
   // property indicates whether the user is currently dragging a file over the component
   dragOver = false;
-  constructor(private recognitionservice:RecognitionService,private router: Router,private sharedphoto :SharedPhotoService){
-
-  }
+  constructor(private recognitionservice:RecognitionService,private router: Router,private sharedphoto :SharedPhotoService){}
 
   // handles the dragover event
   handleDragOver(event: DragEvent) {
