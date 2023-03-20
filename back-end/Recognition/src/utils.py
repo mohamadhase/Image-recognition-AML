@@ -2,9 +2,6 @@ from google.cloud import vision # to call Google Vision APIs for image recogniti
 # Local imports
 from Recognition import client
 from Recognition import logger
-import subprocess
-from time import sleep
-import serial
 from Recognition import ser
 
 
@@ -74,8 +71,8 @@ def convert_labels_to_dict(labels)->dict:
     logger.info("Converting labels to dict.")
 
     labels_dict = {
-        "labels": [label.description for label in labels],
-        "scores": [label.score for label in labels],
+        "labels": (label.description for label in labels),
+        "scores": (label.score for label in labels),
     }
     logger.debug(f"Labels dict: {labels_dict}")
 

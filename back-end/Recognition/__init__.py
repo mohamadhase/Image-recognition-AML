@@ -38,5 +38,4 @@ try:
 except :
     print("no arduino connected to the device")
 
-
 from Recognition.endpoints import api

@@ -1,10 +1,8 @@
 from http import HTTPStatus
-from fastapi import Request,File,HTTPException
+from fastapi import Request,File
 from Recognition import app,logger
 from Recognition.src.data_handler import Photo
 from Recognition.src.utils import google_vision_call,convert_text_to_dict,convert_labels_to_dict,send_close_command,send_open_command
-from time import sleep
-import serial
 
 @app.get("/health")
 def _health_check(request:Request)->dict:
@@ -53,14 +51,13 @@ def __open_gate():
         "data": {},
     }
 
-    
-    
+
 @app.get("/close_gate")
 def __close_gate():
-
     send_close_command()
     return {
         "message": HTTPStatus.OK.phrase,
         "status-code": HTTPStatus.OK,
         "data": {},
     }
+    
