@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RecognitionService } from '../recognition.service';
 import { Router } from '@angular/router';
+import { SharedPhotoService } from '../shared-photo.service';
 
 @Component({
   selector: 'app-recognition-component',
@@ -15,9 +16,8 @@ export class RecognitionComponentComponent {
   imagePreviewUrl: string | null = null;
   // property indicates whether the user is currently dragging a file over the component
   dragOver = false;
-  constructor(private recognitionservice:RecognitionService,private router: Router){
+  constructor(private recognitionservice:RecognitionService,private router: Router,private sharedphoto :SharedPhotoService){}
 
-  }
 
   // handles the dragover event
   handleDragOver(event: DragEvent) {
@@ -91,19 +91,21 @@ export class RecognitionComponentComponent {
     if (this.imagePreviewUrl == null) {
       return;
     }
-    
     let photoContent = this.imagePreviewUrl.split(",")[1];
+    this.sharedphoto.setImageContent(this.imagePreviewUrl) ;
     
     this.recognitionservice.RecognizePhoto(photoContent).subscribe((data) => {
-      console.log(data);
-      data.data.image =  this.imagePreviewUrl;
+
       this.router.navigate(['/result'], {
+
+
         queryParams: {
           obj: JSON.stringify(data.data)
         }
       });
     });
   }
+
 }
 
 

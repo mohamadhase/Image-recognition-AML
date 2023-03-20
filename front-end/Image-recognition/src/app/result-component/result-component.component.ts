@@ -5,6 +5,8 @@ import * as Highcharts from 'highcharts';
 const Wordcloud = require('highcharts/modules/wordcloud');
 Wordcloud(Highcharts);
 import { ActivatedRoute } from '@angular/router';
+import { HardwareService } from '../hardware.service';
+import { SharedPhotoService } from '../shared-photo.service';
 
 interface TextResponse {
   description: string;
@@ -19,20 +21,17 @@ interface TextResponse {
 
 
 export class ResultComponentComponent implements  AfterViewInit{
-  constructor(private route: ActivatedRoute) { }
-
+  constructor(private route: ActivatedRoute,private hardwareservice:HardwareService,private sharedphoto :SharedPhotoService) { }
   showTags = true;
   showText = true;
   isWordCloudExpanded = false;
-
   private labels: string[] = [ ]; //  label names array
-
   private scores: number[]= []; // scores array
   private text_response :TextResponse[]= []
-
+  
 ngAfterViewInit() {
   let data = JSON.parse(this.route.snapshot.queryParamMap.get('obj'));
-  console.log(data)
+
   this.labels = data.labels_response.labels
   this.scores = data.labels_response.scores
   this.text_response = data.text_response
@@ -40,13 +39,14 @@ ngAfterViewInit() {
   const canvas = document.getElementById('myCanvas');
   const ctx = canvas.getContext('2d');
   const image = new Image();
-  image.src = data.image;
+  image.src = this.sharedphoto.getImageContent()
+  image.style.objectFit = "fill"
   let textt_response = this.text_response
-
   image.onload = () => {
     canvas.width = image.width;
-    canvas.height = image.height;
+    canvas.height =  image.height;
     ctx.drawImage(image, 0, 0);
+    
 
     for (const text of textt_response) {
       const rect = new Path2D();
@@ -89,6 +89,7 @@ ngAfterViewInit() {
         },
       });
   }
+
   closeTags() {
     if (this.showTags==true){
       const element = document.querySelector('.tags') as HTMLElement;
@@ -139,6 +140,18 @@ ngAfterViewInit() {
         text: '',
       },
     });
+  }
+  closeWordCloud() {
+    this.isWordCloudExpanded = false;
+
+  }
+
+  openGate(){
+    this.hardwareservice.openGate().subscribe()
+  }
+  closeGate(){
+    this.hardwareservice.closeGate().subscribe()
+
   }
   closeWordCloud() {
     this.isWordCloudExpanded = false;
