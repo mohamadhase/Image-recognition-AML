@@ -19,7 +19,7 @@ export class RecognitionService {
     // Define the URL and data for the POST request
     const apiUrl = 'http://localhost:8000/recognition';
     const data = {content: photo};
-
+    
     // Send the POST request and return the observable of the response
     return this.http.post(apiUrl, data);
   }
