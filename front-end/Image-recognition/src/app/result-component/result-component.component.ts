@@ -144,12 +144,7 @@ ngAfterViewInit() {
     this.isWordCloudExpanded = false;
 
   }
-  onImageLoad() {
-    const canvas = this.canvasRef.nativeElement;
-    const ctx = canvas.getContext('2d');
 
-
-  }
 }
 
 
