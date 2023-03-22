@@ -31,7 +31,7 @@ def google_vision_call(photo:bytes):
     # Return the text annotations and label words
     return texts, labels
 
-def convert_text_to_dict(texts)->list[dict]:
+def convert_text_to_dict(texts):
     """
     Convert the text Object comes from google vision api to pure dict in python
     Args:

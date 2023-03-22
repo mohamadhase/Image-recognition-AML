@@ -7,4 +7,4 @@ CLASS = 5
 
 
 # Set the credentials file path
-CREDENTIALS_PATH = '../back-end/training2-project-948749066640.json'
+CREDENTIALS_PATH = '../app/training2-project-948749066640.json'

@@ -1,0 +1,5 @@
+fastapi==0.95.0
+numpy==1.23.5
+protobuf==4.22.1
+pyserial==3.5
+uvicorn==0.21.1

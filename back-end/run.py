@@ -1,6 +1,5 @@
 import uvicorn
 from Recognition import app,logger
-
 if __name__ == "__main__":
     file_name = __file__.split("/")[-1].split(".")[0].split("\\")[-1] # file name without extension
     logger.info("Server is Trying to Start ... ")
